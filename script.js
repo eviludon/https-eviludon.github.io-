@@ -1,9 +1,9 @@
-// Add a smooth scroll effect to the "Show all" button to scroll to the projects section
+// Smooth scroll to projects section
 document.querySelector('.projects__button').addEventListener('click', function() {
     document.querySelector('#projects').scrollIntoView({ behavior: 'smooth' });
 });
 
-// Highlight navbar links based on section visibility
+// Highlight active section
 const sections = document.querySelectorAll('section');
 const navLinks = document.querySelectorAll('.nav__links');
 
@@ -27,39 +27,33 @@ window.addEventListener('scroll', () => {
     });
 });
 
-// Add zoom effect on hover over project tiles
+// Show more projects
 const projectTiles = document.querySelectorAll('.project-tile');
-
-// Initially hide all but the first 3 project tiles
 projectTiles.forEach((tile, index) => {
     if (index >= 3) {
-        tile.style.display = 'none'; // Hide all projects except the first 3
+        tile.style.display = 'none';
     }
 });
 
-let visibleProjects = 3; // Keep track of how many projects are visible
+let visibleProjects = 3;
 
-// When the button is clicked, show the next 3 project tiles
 const projectsButton = document.querySelector('.projects__button');
 projectsButton.addEventListener('click', () => {
-    // Show the next 3 projects
     for (let i = visibleProjects; i < visibleProjects + 3; i++) {
         if (projectTiles[i]) {
-            projectTiles[i].style.display = 'block'; // Show the project tile
+            projectTiles[i].style.display = 'block';
         }
     }
-    visibleProjects += 3; // Update the number of visible projects
-    // Hide the button if all projects are visible
+    visibleProjects += 3;
     if (visibleProjects >= projectTiles.length) {
-        projectsButton.style.display = 'none'; // Hide the button when all projects are shown
+        projectsButton.style.display = 'none';
     }
 });
 
-// Add zoom effect on hover over project tiles
+// Zoom effect on hover
 projectTiles.forEach(tile => {
     tile.addEventListener('mouseenter', () => {
         tile.querySelector('.projects__images').style.transform = 'scale(1.05)';
-        tile.querySelector('.projects__images').style.transition = 'transform 0.3s ease';
     });
 
     tile.addEventListener('mouseleave', () => {
@@ -67,7 +61,7 @@ projectTiles.forEach(tile => {
     });
 });
 
-// Dark mode toggle feature
+// Dark mode toggle
 const darkModeToggle = document.createElement('button');
 darkModeToggle.textContent = "Toggle Dark Mode";
 darkModeToggle.style.position = 'fixed';
@@ -83,14 +77,10 @@ document.body.appendChild(darkModeToggle);
 
 darkModeToggle.addEventListener('click', () => {
     document.body.classList.toggle('dark-mode');
-    if (document.body.classList.contains('dark-mode')) {
-        darkModeToggle.textContent = 'Switch to Light Mode';
-    } else {
-        darkModeToggle.textContent = 'Switch to Dark Mode';
-    }
+    darkModeToggle.textContent = document.body.classList.contains('dark-mode') ? 'Switch to Light Mode' : 'Switch to Dark Mode';
 });
 
-// Call me link alert (this could be extended to open phone dialer in the future)
+// Call me link alert
 const callLink = document.querySelector('a[href^="tel"]');
 if (callLink) {
     callLink.addEventListener('click', (e) => {
