@@ -1,4 +1,4 @@
- {
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -10,13 +10,12 @@ html {
 
 body {
     display: flex;
-    flex-direction: column; /* Stack sections vertically */
+    flex-direction: column;
     font-size: 1.5rem;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 :root {
-    /* COLORS */
     --HEADER-RED: #ab5dee;
     --FONT-COLOR: black;
     --BODY-GRAY: #dcccfc;
@@ -25,7 +24,6 @@ body {
     --POPPING-RED: #fcf800;
 }
 
-/* UTILITY CLASSES */
 .wrap {
     white-space: wrap;
 }
@@ -34,11 +32,10 @@ body {
     display: inline;
 }
 
-/* || NAVIGATION BAR */
 .nav__bar {
-    position: sticky; /* Changed to sticky to keep it in view when scrolling */
+    position: sticky;
     top: 0;
-    z-index: 1;
+    z-index: 2; /* Ensure navbar is above other sections */
     background-color: var(--HEADER-RED);
     width: 100%;
     height: 80px;
@@ -51,7 +48,7 @@ body {
 .nav__bar ul {
     display: flex;
     flex-direction: row;
-    gap: 2rem; /* Added space between links */
+    gap: 2rem;
 }
 
 .nav__bar li {
@@ -77,8 +74,10 @@ body {
     align-items: center;
     background-color: var(--BODY-GRAY);
     height: 100vh;
-    padding-top: 80px; /* To account for the sticky navbar */
-    flex-shrink: 0; /* Prevent shrinking */
+    padding-top: 80px;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1; /* Ensure welcome section is not overlapped by others */
 }
 
 .section__h1 {
@@ -92,7 +91,16 @@ body {
     color: var(--HEADER-RED);
 }
 
-/* || PROJECTS SECTION */
+.matto {
+    font-style: italic;
+    font-size: 1.7em;
+    color: var(--HEADER-RED);
+}
+
+.heart{
+color: red;
+}
+/* PROJECTS SECTION */
 .section__projects {
     display: flex;
     flex-direction: column;
@@ -101,7 +109,9 @@ body {
     background-color: var(--HEADER-HOVER-BLUE);
     padding: 3rem 1rem;
     gap: 3rem;
-    flex-shrink: 0; /* Prevent shrinking */
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1; /* overlapped */
 }
 
 .section__projects h2 {
@@ -180,8 +190,10 @@ body {
     background-color: var(--PROJECT-PBGCOLOR);
     padding: 3rem 1rem;
     gap: 2rem;
-    flex-shrink: 0; /* Prevent shrinking */
-    margin-bottom: 3rem; /* Space below to prevent overlap with footer */
+    flex-shrink: 0;
+    margin-bottom: 3rem;
+    position: relative;
+    z-index: 1; 
 }
 
 .contact__header {
@@ -212,7 +224,7 @@ body {
     transition: all 0.5s ease;
 }
 
-/* || FOOTER */
+/* FOOTER */
 .footer {
     height: 120px;
     background-color: rgb(52, 53, 58);
@@ -234,15 +246,13 @@ body {
 }
 
 /* Dark Mode Styles */
-
 .dark-mode {
     background-color: #121212;
     color: #ffffff;
 }
 
-/* Navbar */
 .dark-mode .nav__bar {
-    background-color: #2c2c2c; /* Dark navbar */
+    background-color: #2c2c2c;
 }
 
 .dark-mode .nav__links {
@@ -251,25 +261,23 @@ body {
 
 .dark-mode .nav__bar li:hover,
 .dark-mode .nav__bar li:focus {
-    background-color: #1a1a1a; /* Darker hover state */
+    background-color: #1a1a1a;
 }
 
-/* Welcome Section */
 .dark-mode .section__first {
-    background-color: #222222; /* Dark background */
+    background-color: #222222;
 }
 
 .dark-mode .section__h1 {
-    color: #fff; /* White text */
+    color: #fff;
 }
 
 .dark-mode .section__p {
-    color: #ab5dee; /* Light purple for emphasis */
+    color: #ab5dee;
 }
 
-/* Projects Section */
 .dark-mode .section__projects {
-    background-color: #1a1a1a; /* Dark background */
+    background-color: #1a1a1a;
 }
 
 .dark-mode .section__projects h2 {
@@ -277,8 +285,8 @@ body {
 }
 
 .dark-mode .projects__p {
-    background-color: #333333; /* Darker project description */
-    color: #fff; /* White text */
+    background-color: #333333;
+    color: #fff;
 }
 
 .dark-mode .projects__button {
@@ -290,9 +298,8 @@ body {
     background-color: violet;
 }
 
-/* Contact Section */
 .dark-mode .section__contact {
-    background-color: #2c2c2c; /* Dark background */
+    background-color: #2c2c2c;
 }
 
 .dark-mode .contact__header {
@@ -308,7 +315,6 @@ body {
     transition: all 0.5s ease;
 }
 
-/* Footer */
 .dark-mode .footer {
     background-color: #1c1c1c;
     border-top: 4px solid #4002bd;
@@ -325,3 +331,4 @@ body {
 .dark-mode .footer__link:hover {
     color: white;
 }
+
