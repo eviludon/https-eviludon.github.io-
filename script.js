@@ -67,24 +67,19 @@ darkModeToggle.textContent = "Toggle Dark Mode";
 darkModeToggle.style.position = 'fixed';
 darkModeToggle.style.bottom = '20px';
 darkModeToggle.style.right = '20px';
-darkModeToggle.style.padding = '10px 20px';
+darkModeToggle.style.padding = '10px';
 darkModeToggle.style.backgroundColor = '#ab5dee';
-darkModeToggle.style.color = 'white';
+darkModeToggle.style.color = '#fff';
 darkModeToggle.style.border = 'none';
+darkModeToggle.style.borderRadius = '5px';
 darkModeToggle.style.cursor = 'pointer';
-darkModeToggle.style.fontSize = '1rem';
 document.body.appendChild(darkModeToggle);
 
 darkModeToggle.addEventListener('click', () => {
     document.body.classList.toggle('dark-mode');
-    darkModeToggle.textContent = document.body.classList.contains('dark-mode') ? 'Switch to Light Mode' : 'Switch to Dark Mode';
+    if (document.body.classList.contains('dark-mode')) {
+        darkModeToggle.textContent = 'Switch to Light Mode';
+    } else {
+        darkModeToggle.textContent = 'Switch to Dark Mode';
+    }
 });
-
-// Call me link alert
-const callLink = document.querySelector('a[href^="tel"]');
-if (callLink) {
-    callLink.addEventListener('click', (e) => {
-        e.preventDefault();
-        alert('Sorry, calling is not yet enabled!');
-    });
-}
