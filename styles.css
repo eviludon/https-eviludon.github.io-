@@ -1,8 +1,14 @@
 /* General Styles */
-* { 
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
 }
 
 html {
@@ -10,24 +16,22 @@ html {
 }
 
 body {
-    display: flex;
-    flex-direction: column;
     font-size: 1.5rem;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 :root {
-    --HEADER-RED: #ab5dee;
-    --FONT-COLOR: black;
+    --HEADER: #ab5dee;
+    --FONT-COLOR: #000000;
     --BODY-GRAY: #dcccfc;
-    --HEADER-HOVER-BLUE: #9300fc;
-    --PROJECT-PBGCOLOR: rgb(52, 53, 58);
+    --HEADER-HOVER-BLUE: #b0a5b3;
+    --PROJECT-PBGCOLOR: rgb(7, 7, 8);
     --POPPING-RED: #fcf800;
 }
 
 /* Remove underline from links */
 a {
-    text-decoration: none;  /* Remove underline for all links */
+    text-decoration: none;
 }
 
 /* Navigation Bar */
@@ -35,7 +39,7 @@ a {
     position: sticky;
     top: 0;
     z-index: 2;
-    background-color: var(--HEADER-RED);
+    background-color: var(--HEADER);
     width: 100%;
     height: 80px;
     border-bottom: 1px solid black;
@@ -66,38 +70,55 @@ a {
 }
 
 /* Welcome Section */
+
 .section__first {
     display: flex;
-    flex-direction: column;
     justify-content: center;
+    flex-wrap: nowrap;
     align-items: center;
-    background-color: var(--BODY-GRAY);
-    height: 100vh;
-    padding-top: 80px;
-    flex-shrink: 0;
-    position: relative;
-    z-index: 1;
+    flex-direction: column;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: center;
+    background: url('https://images.unsplash.com/photo-1470519903472-9bfac69c2556?q=80&w=1469&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center;
+    height: 90%;
+    background-size: 100% 600px;
+    /* Set width to auto, height to 200px */
+    background-color: var(--HEADER-HOVER-BLUE);
+    overflow: hidden;
+    margin: 0;
+}
+
+.background-image {
+    height: 75%;
 }
 
 .section__h1 {
     font-size: 3em;
-    color: var(--FONT-COLOR);
+    color: white;
 }
 
 .section__p {
     font-style: italic;
     font-size: 1.7em;
-    color: var(--HEADER-RED);
+    color: var(--HEADER);
 }
 
 .matto {
     font-style: italic;
     font-size: 1.7em;
-    color: var(--HEADER-RED);
+    color: var(--HEADER);
+    padding-bottom: 30px;
 }
 
 .heart {
     color: red;
+}
+
+.wolf {
+    width: 150px;
+    height: auto;
+    /* Maintain the aspect ratio */
 }
 
 /* Projects Section */
@@ -115,9 +136,11 @@ a {
 }
 
 .section__projects h2 {
-    color: var(--FONT-COLOR);
+    color: white;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
     text-align: center;
-    text-decoration: none;  /* No underline */
+    text-decoration: none;
+    /* No underline */
     font-size: 2em;
 }
 
@@ -138,6 +161,11 @@ a {
     width: 100%;
     height: 400px;
     display: block;
+    transition: filter 0.3s ease;
+}
+
+.projects__images:hover {
+    filter: grayscale(100%);
 }
 
 .projects__p {
@@ -191,16 +219,12 @@ a {
     padding: 3rem 1rem;
     gap: 2rem;
     flex-shrink: 0;
-    margin-bottom: 3rem;
+    margin-bottom: 0;
     position: relative;
     z-index: 1;
 }
 
 .contact__header {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     color: white;
 }
 
@@ -216,12 +240,13 @@ a {
 .contact__links a {
     color: white;
     padding: 2rem;
-    text-decoration: none;  /* Removed underline */
+    text-decoration: none;
 }
 
 .contact__links a:hover {
     transform: translateY(-2rem);
     transition: all 0.5s ease;
+    color: #fcf800;
 }
 
 /* Footer */
@@ -233,15 +258,14 @@ a {
     align-items: center;
     border-top: 4px solid var(--POPPING-RED);
     padding: 1rem;
+    color: white;
 }
 
 .footer p {
-    color: var(--FONT-COLOR);
     padding: 1rem;
 }
 
 .footer__link {
-    color: var(--FONT-COLOR);
     text-decoration: none;
 }
 
@@ -290,7 +314,8 @@ a {
 .dark-mode .projects__p,
 .dark-mode .section__first h1,
 .dark-mode .section__p {
-    color: #ffffff; /* Change text color to white in dark mode */
+    color: #ffffff;
+    /* Changes text color to white in dark mode */
 }
 
 .dark-mode .footer__link {
@@ -303,5 +328,6 @@ a {
 
 /* Dark Mode Specific: Toggle Button Position */
 button {
-    z-index: 9999; /* Ensure the dark mode button is above all other elements */
+    z-index: 9999;
+    /* Ensure the dark mode button is above all other elements */
 }
