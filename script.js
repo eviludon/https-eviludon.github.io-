@@ -1,5 +1,5 @@
 // Smooth scroll to projects section
-document.querySelector('.projects__button').addEventListener('click', function() {
+document.querySelector('.projects__button').addEventListener('click', function () {
     document.querySelector('#projects').scrollIntoView({ behavior: 'smooth' });
 });
 
@@ -9,7 +9,7 @@ const navLinks = document.querySelectorAll('.nav__links');
 
 window.addEventListener('scroll', () => {
     let currentSection = '';
-    
+
     sections.forEach(section => {
         const sectionTop = section.offsetTop;
         const sectionHeight = section.clientHeight;
@@ -50,16 +50,16 @@ projectsButton.addEventListener('click', () => {
     }
 });
 
-// Zoom effect on hover
-projectTiles.forEach(tile => {
-    tile.addEventListener('mouseenter', () => {
-        tile.querySelector('.projects__images').style.transform = 'scale(1.05)';
-    });
+// // Zoom effect on hover
+// projectTiles.forEach(tile => {
+//     tile.addEventListener('mouseenter', () => {
+//         tile.querySelector('.projects__images').style.transform = 'scale(1.05)';
+//     });
 
-    tile.addEventListener('mouseleave', () => {
-        tile.querySelector('.projects__images').style.transform = 'scale(1)';
-    });
-});
+//     tile.addEventListener('mouseleave', () => {
+//         tile.querySelector('.projects__images').style.transform = 'scale(1)';
+//     });
+// });
 
 // Dark mode toggle
 const darkModeToggle = document.createElement('button');
